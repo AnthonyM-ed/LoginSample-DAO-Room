@@ -1,0 +1,11 @@
+admin|admin123|Admin|Admin|admin@admin.com|123456789
+usuario1|password1|Juan|Pérez|juan.perez@email.com|987654321
+usuario2|password2|María|González|maria.gonzalez@email.com|654321987
+usuario3|password3|Carlos|López|carlos.lopez@email.com|321654987
+usuario4|password4|Ana|Martínez|ana.martinez@email.com|987123654
+usuario5|password5|Luis|Sánchez|luis.sanchez@email.com|852741963
+usuario6|password6|Lucía|Rodríguez|lucia.rodriguez@email.com|753951456
+usuario7|password7|Pedro|Hernández|pedro.hernandez@email.com|741258369
+usuario8|password8|Sara|Gómez|sara.gomez@email.com|159753486
+usuario9|password9|José|Díaz|jose.diaz@email.com|357951624
+usuario10|password10|Laura|Pérez|laura.perez@email.com|963258741

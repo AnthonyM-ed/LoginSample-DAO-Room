@@ -1,0 +1,49 @@
+Cuarto: 1
+Título: Ingreso a la Mansión del Fundador
+Descripción: La Mansión del Fundador se ubica a unos 20 km de la Plaza de Armas de Arequipa. Su historia comienza en el siglo XVI cuando fue construida como residencia del fundador de la ciudad, Garcí Manuel de Carbajal. Con el tiempo, fue habitada por varios personajes y convertida en un museo que alberga reliquias coloniales. Su arquitectura de sillar refleja la tradición arequipeña y la adaptación a los terremotos que frecuentemente afectaban la región.
+URL de la imagen: ingreso
+
+Cuarto: 2
+Título: Garcí Manuel de Carbajal
+Descripción: Esta habitación está dedicada a Garcí Manuel de Carbajal, el fundador de Arequipa. Aquí se pueden ver objetos y retratos relacionados con su vida y legado. La decoración interior refleja la época colonial y muestra la importancia histórica de la Mansión como hogar de personajes ilustres.
+URL de la imagen: garci_manuel
+
+Cuarto: 3
+Título: La planta de la Mansión
+Descripción: La planta de la Mansión sigue un diseño característico de la arquitectura colonial, con un patio central que sirve como el corazón de la construcción. Alrededor de este patio, se encuentran varias habitaciones conectadas entre sí, reflejando el estilo de vida de los habitantes de aquella época. El patio central cuenta con una fuente de agua, símbolo de tranquilidad y vida en la casona.
+URL de la imagen: planta_mansion
+
+Cuarto: 4
+Título: Vida en la casona
+Descripción: Este espacio muestra la vida cotidiana en la Mansión, con muebles de época, decoraciones y detalles que reflejan el estilo de vida de sus antiguos habitantes. La ambientación invita a los visitantes a sumergirse en la historia de la Arequipa colonial y el ambiente familiar que rodeaba a la casona.
+URL de la imagen: casona
+
+Cuarto: 5
+Título: Óleos de la escuela cusqueña
+Descripción: En esta sala se pueden apreciar diversos óleos de la escuela cusqueña, que forman parte de la colección de la Mansión. Estas obras de arte representan temas religiosos y muestran influencias mestizas en los rasgos y vestimentas de los personajes, siendo un testimonio artístico del periodo colonial en el Perú.
+URL de la imagen: oleos
+
+Cuarto: 6
+Título: Camino al Calvario
+Descripción: Este cuarto representa una de las devociones más importantes de la religión católica, el Camino al Calvario, con obras artísticas que ilustran las estaciones de la cruz y las escenas más significativas de la pasión de Cristo. Las piezas aquí expuestas son tanto una manifestación de la fe como del arte sacro colonial, permitiendo a los visitantes reflexionar sobre el significado histórico y espiritual de este camino.
+URL de la imagen: cuarto6
+
+Cuarto: 7
+Título: Cultura Europea
+Descripción: Este cuarto exhibe diversas influencias de la cultura europea en Arequipa, desde objetos decorativos hasta mobiliario de estilo renacentista y barroco. Estas piezas resaltan la influencia del Viejo Mundo en el Perú colonial, mostrando una mezcla de arte y tradiciones que fueron adaptadas a la cultura local. La colección incluye una variedad de elementos decorativos y textiles que evocan el impacto cultural de Europa en la región.
+URL de la imagen: cuarto7
+
+Cuarto: 8
+Título: José Sebastián de Goyeneche y Barreda
+Descripción: Este espacio está dedicado a José Sebastián de Goyeneche y Barreda, arzobispo y una figura destacada en la historia de Arequipa. Se exhiben objetos personales, retratos y documentos que narran su influencia religiosa y política en el desarrollo de la región. Los visitantes pueden conocer su vida y legado, que continúa siendo significativo en la historia de Arequipa.
+URL de la imagen: cuarto8
+
+Cuarto: 9
+Título: Representación de la Santísima Trinidad
+Descripción: Este cuarto presenta una iconografía religiosa centrada en la Santísima Trinidad, una temática común en el arte sacro de la época colonial. La exhibición cuenta con pinturas y esculturas que representan la Trinidad, destacando el simbolismo y la interpretación cristiana de Dios en tres personas. Esta sala invita a los visitantes a una experiencia introspectiva y espiritual.
+URL de la imagen: cuarto9
+
+Cuarto: 10
+Título: Salida a la Campiña de Arequipa
+Descripción: La salida a la campiña de Arequipa ofrece una vista panorámica de los alrededores, permitiendo a los visitantes apreciar el paisaje natural y la conexión de la mansión con la naturaleza. Este espacio simboliza el vínculo entre la arquitectura colonial y el entorno rural, proporcionando un respiro visual y una perspectiva única de la campiña arequipeña.
+URL de la imagen: cuarto10

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="#E0E0E0">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:padding="10dp"
+        android:background="#fff">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Texto por Defecto"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
+
+            <ImageView
+                android:id="@+id/image_view"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/description_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="Texto por defecto"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btn_view_mansion"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:text="Ver Interior"
+                android:backgroundTint="#F0EFEF"
+                android:drawableLeft="@drawable/right_arrow"
+                android:gravity="start|center_vertical"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/btn_view_comments"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:text="Comentarios"
+                android:backgroundTint="#F0EFEF"
+                android:drawableLeft="@drawable/right_arrow"
+                android:gravity="start|center_vertical"
+                android:textColor="@color/black" />
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

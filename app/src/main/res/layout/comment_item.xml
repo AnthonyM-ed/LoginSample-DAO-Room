@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:background="?android:attr/selectableItemBackground">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start"
+        android:layout_marginBottom="4dp">
+
+        <TextView
+            android:id="@+id/comment_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Nombre de Usuario"
+            android:textSize="16sp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:id="@+id/comment_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:text="5"
+            android:textColor="#FFAE00"
+            android:layout_marginLeft="4dp" />
+
+        <ImageView
+            android:id="@+id/comment_star_icon"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginBottom="7dp"
+            android:layout_marginTop="4dp"
+            android:src="@drawable/fullstar" />
+
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/comment_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Comentario del usuario"
+        android:textSize="14sp"
+        android:layout_marginBottom="4dp" />
+</LinearLayout>

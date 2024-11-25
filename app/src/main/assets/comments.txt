@@ -1,0 +1,7 @@
+Juan Elias;Este es un excelente lugar!;5
+Maria;Me encanta este sitio, pero podría mejorar la comida.;4
+Carlos;No está mal, pero puede ser más económico.;3
+Pedro;Muy bueno;4
+Juan Carlos;Es dificil llegar, me perdí varias veces;3
+Pablo Gomez;Fui 2 días seguidos y estaba cerrado en ambos.;0
+Richard;Excelente lugar para pasar en familia.;5

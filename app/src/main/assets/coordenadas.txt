@@ -1,0 +1,23 @@
+# Cuartos (Rooms)
+Cuarto Cuarto1 10 190 280 270
+Cuarto Cuarto2 280 93 460 373
+Cuarto Cuarto3 460 96 741 373
+Cuarto Cuarto4 460 376 741 480
+Cuarto Cuarto5 741 198 900 369
+Cuarto Cuarto6 741 95 900 198
+Cuarto Cuarto7 900 95 1070 370
+Cuarto Cuarto8 800 23 900 96
+Cuarto Cuarto9 490 23 630 96
+Cuarto Cuarto10 630 23 800 96
+
+
+# Puertas (Doors)
+Puerta 280 260 280 212
+Puerta 460 259 460 198
+Puerta 531 373 600 373
+Puerta 741 213 741 300
+Puerta 900 218 900 315
+Puerta 783 198 837 198
+Puerta 846 96 811 96
+Puerta 759 96 688 96
+Puerta 601 96 542 96

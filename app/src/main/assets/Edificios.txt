@@ -1,0 +1,10 @@
+Basílica Catedral de Arequipa|Santuario principal de la ciudad ocupando el lado norte de la Plaza de Armas|catedral|-16.397984048135932|-71.53673128161762
+Mansión del Fundador|Histórica casona colonial de Arequipa, conocida por su arquitectura de sillar y rica herencia cultural y artística.|ingreso|-16.463936372240706|-71.55729258865472
+Monasterio de Santa Catalina|Una pequeña ciudadela que ocupa un área de 20 mil metros cuadrados.|monasterio|-16.39595509634242|-71.53656637649401
+Molino de Sabandía|Construcción colonial donde se molían trigo y maíz.|molino|-16.456590744452647|-71.49955834765629
+Mirador de Yanahuara|Ofrece una vista panorámica de Arequipa y sus volcanes, rodeado de arcos de sillar con inscripciones poéticas.|yanahuara|-16.387167094561956|-71.54160938813618
+Plaza de Armas|Centro histórico de la ciudad rodeado de impresionantes edificios coloniales y la catedral.|plaza_armas|-16.39867459849642|-71.53693009183723
+Museo Santuarios Andinos|Hogar de la momia Juanita, una momia Inca congelada encontrada en el volcán Ampato.|santuarios_andinos|-16.399796407060574|-71.53770136115067
+Templo de la Compañía de Jesus|Templo jesuita del siglo XVII, con una impresionante fachada barroca tallada en sillar.|compania|-16.399598829892067|-71.53620287094185
+Cañón del Colca|Uno de los cañones más profundos del mundo, famoso por sus vistas y observación de cóndores.|colca|-15.641923683924892|-72.17506886130985
+Baños Termales de Yura|Aguas termales naturales conocidas por sus propiedades terapéuticas y relajantes.|banos_yura|-16.245606631469656|-71.69530168465673
