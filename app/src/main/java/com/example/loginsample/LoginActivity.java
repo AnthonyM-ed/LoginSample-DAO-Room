@@ -38,7 +38,8 @@ public class LoginActivity extends AppCompatActivity {
         Button btnAddAccount = binding.btnAddAccount;
 
         // Obtener la instancia del DAO y la base de datos
-        usuarioDao = AppDatabase.getInstance(this).usuarioDao();
+        AppDatabase database = AppDatabase.getInstance(this);
+        usuarioDao = database.usuarioDao();
 
         // Funcionalidad de login
         btnLogin.setOnClickListener(v -> {
@@ -50,8 +51,12 @@ public class LoginActivity extends AppCompatActivity {
                 return;
             }
 
-            // Verificar las credenciales de inicio de sesión
-            validarLogin(username, password);
+            // Cargar comentarios antes de validar el login
+            new Thread(() -> {
+                database.cargarComentarios(this);
+                runOnUiThread(() -> Toast.makeText(this, "Comentarios cargados", Toast.LENGTH_SHORT).show());
+                validarLogin(username, password);
+            }).start();
         });
 
         // Funcionalidad de crear cuenta nueva

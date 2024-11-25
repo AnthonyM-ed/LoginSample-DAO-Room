@@ -55,9 +55,15 @@ public class DetailFragment extends Fragment {
                     .commit();
         });
 
-        // Redirigir al fragmento CommentsSectionFragment
+        // Botón para redirigir al fragmento CommentsSectionFragment
         btnViewComments.setOnClickListener(v -> {
             CommentsSectionFragment commentsFragment = new CommentsSectionFragment();
+
+            // Pasar solo el nombre del edificio al fragmento de comentarios
+            Bundle args = new Bundle();
+            args.putString("buildingName", title);  // Pasar el nombre del edificio
+            commentsFragment.setArguments(args);
+
             getParentFragmentManager().beginTransaction()
                     .replace(R.id.fragmentContainerView, commentsFragment)
                     .addToBackStack(null)

@@ -24,7 +24,7 @@ public interface EdificioDao {
     @Query("SELECT * FROM Edificios WHERE idEdificio = :id")
     EdificioEntity getEdificioById(int id);
 
-    // Obtener un edificio por su ID
+    // Obtener un edificio por su Nombre
     @Query("SELECT * FROM Edificios WHERE ediName = :name")
     EdificioEntity getEdificioByName(String name);
 
