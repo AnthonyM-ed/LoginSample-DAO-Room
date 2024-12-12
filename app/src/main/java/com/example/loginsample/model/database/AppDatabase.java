@@ -75,7 +75,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split("\\|");
-                if (parts.length == 5) { // nombre|descripción|imagen|latitud|longitud
+                if (parts.length == 6) { // nombre|descripción|imagen|latitud|longitud|audio
                     EdificioEntity existing = edificioDao.getEdificioByName(parts[0]);
                     if (existing == null) {
                         EdificioEntity edificio = new EdificioEntity();
@@ -98,23 +98,14 @@ public abstract class AppDatabase extends RoomDatabase {
                             Log.e("AppDatabase", "Error al parsear coordenadas para: " + parts[0]);
                         }
 
-                        edificioDao.insertEdificio(edificio);
-                    } else {
-                        existing.setDescription(parts[1]);
-                        int imageResId = context.getResources().getIdentifier(parts[2], "drawable", context.getPackageName());
-                        if (imageResId != 0) {
-                            existing.setEdiImagen(imageResId);
+                        // Obtener el ID del recurso de audio
+                        int audioResId = context.getResources().getIdentifier(parts[5], "raw", context.getPackageName());
+                        if (audioResId == 0) {
+                            Log.e("AppDatabase", "Audio no encontrado: " + parts[5]);
                         }
+                        edificio.setEdAudId(audioResId);
 
-                        try {
-                            double latitud = Double.parseDouble(parts[3]);
-                            double longitud = Double.parseDouble(parts[4]);
-                            existing.setEdiLatitud(latitud);
-                            existing.setEdiLongitud(longitud);
-                        } catch (NumberFormatException e) {
-                            Log.e("AppDatabase", "Error al parsear coordenadas para: " + parts[0]);
-                        }
-                        edificioDao.updateEdificio(existing);
+                        edificioDao.insertEdificio(edificio);
                     }
                 }
             }
@@ -123,6 +114,7 @@ public abstract class AppDatabase extends RoomDatabase {
             Log.e("AppDatabase", "Error leyendo Edificios.txt", e);
         }
     }
+
 
     // Método para cargar los usuarios desde un archivo txt
     private static void loadUsersFromFile(Context context, UsuarioDao usuarioDao) {
