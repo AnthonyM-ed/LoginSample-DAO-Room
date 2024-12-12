@@ -26,7 +26,6 @@ public class SplashActivity extends AppCompatActivity {
             new Thread(() -> {
                 database.cargarUsuarios(this);
                 database.cargarEdificios(this);
-                runOnUiThread(() -> Toast.makeText(this, "Usuarios y edificios cargados", Toast.LENGTH_SHORT).show());
             }).start();
 
             Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
