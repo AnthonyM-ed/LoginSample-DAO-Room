@@ -59,28 +59,12 @@ public abstract class AppDatabase extends RoomDatabase {
                                     // Eliminar la carga automática aquí
                                     Log.d("AppDatabase", "Base de datos creada.");
                                 }
-
-                                @Override
-                                public void onOpen(@NonNull SupportSQLiteDatabase db) {
-                                    super.onOpen(db);
-                                    AppDatabase.getInstance(context).logAllComentarios();
-                                }
                             }).build();
                 }
             }
         }
         return INSTANCE;
     }
-
-    // Migración entre la versión 1 y 2 (si hubo cambios en el esquema)
-    public static final Migration MIGRATION_1_2 = new Migration(1, 2) {
-        @Override
-        public void migrate(@NonNull SupportSQLiteDatabase database) {
-            // Realiza las migraciones necesarias, por ejemplo:
-            // database.execSQL("ALTER TABLE edificio ADD COLUMN nueva_columna TEXT");
-        }
-    };
-
 
     // Método para cargar los edificios desde el archivo txt
     private static void loadBuildingsFromFile(Context context, EdificioDao edificioDao) {
