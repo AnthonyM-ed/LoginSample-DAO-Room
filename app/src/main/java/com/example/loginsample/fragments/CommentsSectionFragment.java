@@ -1,5 +1,7 @@
 package com.example.loginsample.fragments;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -88,27 +90,32 @@ public class CommentsSectionFragment extends Fragment {
             int rating = (int) ratingBar.getRating();
 
             if (!commentText.isEmpty() && rating > 0) {
-                // Obtener el ID del usuario logueado (esto depende de cómo gestionas la sesión del usuario)
-                int userId = 1; // Suponiendo que el ID del usuario está disponible
+                // Obtener el ID del usuario logueado desde SharedPreferences
+                SharedPreferences sharedPref = getActivity().getSharedPreferences("MyAppPreferences", Context.MODE_PRIVATE);
+                int userId = sharedPref.getInt("USER_ID", -1); // -1 es el valor por defecto si no se encuentra la clave
 
-                ComentarioEntity newComment = new ComentarioEntity();
-                newComment.setIdEdificio(buildingId); // Asociar comentario al edificio
-                newComment.setComentario(commentText);
-                newComment.setCalificacion(rating);
-                newComment.setIdUser(userId); // Usar el ID del usuario logueado
+                if (userId != -1) { // Verifica que se encontró un ID de usuario válido
+                    ComentarioEntity newComment = new ComentarioEntity();
+                    newComment.setIdEdificio(buildingId); // Asociar comentario al edificio
+                    newComment.setComentario(commentText);
+                    newComment.setCalificacion(rating);
+                    newComment.setIdUser(userId); // Usar el ID del usuario logueado
 
-                comentarioRepository.addComment(newComment);
-                commentList.add(newComment);
-                commentAdapter.notifyItemInserted(commentList.size() - 1);
+                    comentarioRepository.addComment(newComment);
+                    commentList.add(newComment);
+                    commentAdapter.notifyItemInserted(commentList.size() - 1);
 
-                // Limpiar campos de entrada
-                commentInput.setText("");
-                ratingBar.setRating(0);
+                    // Limpiar campos de entrada
+                    commentInput.setText("");
+                    ratingBar.setRating(0);
 
-                // Actualizar promedio
-                float updatedAverageRating = calculateAndRoundAverageRating(commentList);
-                averageRatingBar.setRating(updatedAverageRating);
-                averageRateTextView.setText(String.format("%.1f", updatedAverageRating));
+                    // Actualizar promedio
+                    float updatedAverageRating = calculateAndRoundAverageRating(commentList);
+                    averageRatingBar.setRating(updatedAverageRating);
+                    averageRateTextView.setText(String.format("%.1f", updatedAverageRating));
+                } else {
+                    Toast.makeText(getContext(), "Usuario no encontrado. Por favor, inicia sesión nuevamente.", Toast.LENGTH_SHORT).show();
+                }
             } else {
                 Toast.makeText(getContext(), "Por favor, ingresa un comentario y calificación válida.", Toast.LENGTH_SHORT).show();
             }

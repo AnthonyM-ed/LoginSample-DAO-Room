@@ -1,6 +1,7 @@
 package com.example.loginsample;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -76,6 +77,12 @@ public class LoginActivity extends AppCompatActivity {
                 runOnUiThread(() -> {
                     Toast.makeText(getApplicationContext(), "Bienvenido a mi app", Toast.LENGTH_LONG).show();
                     Log.d(TAG, "Bienvenido a mi app");
+
+                    // Guardar el ID del usuario en SharedPreferences
+                    SharedPreferences sharedPref = getSharedPreferences("MyAppPreferences", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putInt("USER_ID", usuario.getIdUser());
+                    editor.apply();
 
                     Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                     // Pasar datos del usuario autenticado a la siguiente actividad (opcional)
