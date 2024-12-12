@@ -13,6 +13,7 @@ public class EdificioEntity {
     private int ediImagen; // ID del recurso
     private double ediLatitud;
     private double ediLongitud;
+    private int edAudId;
 
     // Constructor vacío requerido por Room
     public EdificioEntity() {}
@@ -63,5 +64,13 @@ public class EdificioEntity {
 
     public void setEdiLongitud(double ediLongitud) {
         this.ediLongitud = ediLongitud;
+    }
+
+    public int getEdAudId() {
+        return edAudId;
+    }
+
+    public void setEdAudId(int edAudId) {
+        this.edAudId = edAudId;
     }
 }
