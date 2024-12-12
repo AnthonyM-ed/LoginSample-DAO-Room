@@ -1,8 +1,6 @@
 package com.example.loginsample.fragments;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +14,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.loginsample.CommentAdapter;
 import com.example.loginsample.R;
-import com.example.loginsample.model.dao.UsuarioDao;
 import com.example.loginsample.model.database.AppDatabase;
 import com.example.loginsample.model.database.ComentarioRepository;
 import com.example.loginsample.model.database.UserRepository;

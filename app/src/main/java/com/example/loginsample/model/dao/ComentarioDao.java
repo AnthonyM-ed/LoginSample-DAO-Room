@@ -28,6 +28,9 @@ public interface ComentarioDao {
     @Query("SELECT * FROM Comentarios WHERE idEdificio = :edificioId")
     List<ComentarioEntity> getComentariosByEdificioId(int edificioId);
 
+    @Query("SELECT COUNT(*) FROM comentarios")
+    int countComentarios();
+
     // Actualizar un comentario
     @Update
     void updateComentario(ComentarioEntity comentario);

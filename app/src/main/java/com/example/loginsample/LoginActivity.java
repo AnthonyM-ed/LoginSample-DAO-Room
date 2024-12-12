@@ -9,15 +9,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.example.loginsample.databinding.ActivityMainBinding;
 import com.example.loginsample.model.dao.UsuarioDao;
 import com.example.loginsample.model.database.AppDatabase;
 import com.example.loginsample.model.ent.UsuarioEntity;
-
-import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
@@ -51,11 +47,16 @@ public class LoginActivity extends AppCompatActivity {
                 return;
             }
 
-            // Cargar comentarios antes de validar el login
+            // Validar y cargar comentarios si es necesario antes de validar el login
             new Thread(() -> {
-                database.cargarComentarios(this);
-                runOnUiThread(() -> Toast.makeText(this, "Comentarios cargados", Toast.LENGTH_SHORT).show());
-                validarLogin(username, password);
+                boolean comentariosExisten = database.comentarioDao().countComentarios() > 0;
+
+                if (!comentariosExisten) {
+                    database.cargarComentarios(this);
+                    runOnUiThread(() -> Toast.makeText(this, "Comentarios cargados", Toast.LENGTH_SHORT).show());
+                }
+
+                runOnUiThread(() -> validarLogin(username, password));
             }).start();
         });
 
