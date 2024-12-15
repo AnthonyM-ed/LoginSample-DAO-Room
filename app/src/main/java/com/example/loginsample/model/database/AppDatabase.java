@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
-import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.loginsample.R;
@@ -189,22 +188,6 @@ public abstract class AppDatabase extends RoomDatabase {
     private static int resolveEdificioId(String edificioNombre, EdificioDao edificioDao) {
         EdificioEntity edificio = edificioDao.getEdificioByName(edificioNombre);
         return edificio != null ? edificio.getIdEdificio() : -1;
-    }
-
-    public void logAllComentarios() {
-        Executors.newSingleThreadExecutor().execute(() -> {
-            List<ComentarioEntity> comentarios = comentarioDao().getAllComentarios();
-            if (comentarios != null && !comentarios.isEmpty()) {
-                for (ComentarioEntity comentario : comentarios) {
-                    Log.d("AppDatabase", "Comentario: UsuarioID=" + comentario.getIdUser() +
-                            ", EdificioID=" + comentario.getIdEdificio() +
-                            ", Calificación=" + comentario.getCalificacion() +
-                            ", Texto=" + comentario.getComentario());
-                }
-            } else {
-                Log.d("AppDatabase", "No hay comentarios en la base de datos.");
-            }
-        });
     }
 
     public void cargarEdificios(Context context) {

@@ -16,11 +16,15 @@ import com.example.loginsample.model.dao.UsuarioDao;
 import com.example.loginsample.model.database.AppDatabase;
 import com.example.loginsample.model.ent.UsuarioEntity;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
     private ActivityMainBinding binding;
 
     private UsuarioDao usuarioDao;
+    private ExecutorService executorService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +42,8 @@ public class LoginActivity extends AppCompatActivity {
         AppDatabase database = AppDatabase.getInstance(this);
         usuarioDao = database.usuarioDao();
 
+        executorService = Executors.newSingleThreadExecutor();
+
         // Funcionalidad de login
         btnLogin.setOnClickListener(v -> {
             String username = edtUsername.getText().toString().trim();
@@ -49,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             // Validar y cargar comentarios si es necesario antes de validar el login
-            new Thread(() -> {
+            executorService.execute(() -> {
                 boolean comentariosExisten = database.comentarioDao().countComentarios() > 0;
 
                 if (!comentariosExisten) {
@@ -58,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 runOnUiThread(() -> validarLogin(username, password));
-            }).start();
+            });
         });
 
         // Funcionalidad de crear cuenta nueva
@@ -69,8 +75,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void validarLogin(String username, String password) {
-        // Hacer la búsqueda del usuario en la base de datos
-        new Thread(() -> {
+        executorService.execute(() -> {
             UsuarioEntity usuario = usuarioDao.getUsuarioByUserName(username);
 
             if (usuario != null && usuario.getUserPassword().equals(password)) {
@@ -85,7 +90,6 @@ public class LoginActivity extends AppCompatActivity {
                     editor.apply();
 
                     Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-                    // Pasar datos del usuario autenticado a la siguiente actividad (opcional)
                     intent.putExtra("USER_NAME", usuario.getUserFirstName());
 
                     startActivity(intent);
@@ -96,6 +100,13 @@ public class LoginActivity extends AppCompatActivity {
                     Log.d(TAG, "Error en la autenticación");
                 });
             }
-        }).start();
+        });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Apagar el ExecutorService para evitar fugas de memoria
+        executorService.shutdown();
     }
 }

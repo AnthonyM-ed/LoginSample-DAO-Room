@@ -9,7 +9,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.loginsample.model.database.AppDatabase;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class SplashActivity extends AppCompatActivity {
+
+    private Button startButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,18 +24,33 @@ public class SplashActivity extends AppCompatActivity {
         // Inicializar la base de datos
         AppDatabase database = AppDatabase.getInstance(this);
 
-        Button startButton = findViewById(R.id.startButton);
+        startButton = findViewById(R.id.startButton);
 
         startButton.setOnClickListener(v -> {
-            // Cargar usuarios y edificios en un hilo separado
-            new Thread(() -> {
-                database.cargarUsuarios(this);
-                database.cargarEdificios(this);
-            }).start();
+            // Deshabilitar el botón para evitar múltiples clics
+            startButton.setEnabled(false);
 
-            Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
-            startActivity(intent);
-            finish(); // Cerrar SplashActivity
+            // Cargar datos en segundo plano
+            ExecutorService executor = Executors.newSingleThreadExecutor();
+            executor.execute(() -> {
+                try {
+                    database.cargarUsuarios(this);
+                    database.cargarEdificios(this);
+
+                    // Volver al hilo principal para navegar
+                    runOnUiThread(() -> {
+                        Toast.makeText(this, "Datos cargados correctamente", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                        finish(); // Cerrar SplashActivity
+                    });
+                } catch (Exception e) {
+                    runOnUiThread(() -> {
+                        startButton.setEnabled(true);
+                        Toast.makeText(this, "Error al cargar datos: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                    });
+                }
+            });
         });
     }
 }

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -16,6 +17,7 @@ import com.example.loginsample.model.database.AppDatabase;
 import com.example.loginsample.model.ent.UsuarioEntity;
 import com.google.gson.Gson;
 import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class AccountActivity extends AppCompatActivity {
@@ -60,10 +62,15 @@ public class AccountActivity extends AppCompatActivity {
 
             // Insertamos el usuario en la base de datos en segundo plano
             executor.execute(() -> {
-                // Accedemos a la base de datos
-                AppDatabase db = AppDatabase.getInstance(AccountActivity.this);
-                UsuarioDao usuarioDao = db.usuarioDao();
-                usuarioDao.insertUsuario(usuarioEntity); // Insertamos el nuevo usuario
+                try {
+                    // Accedemos a la base de datos
+                    AppDatabase db = AppDatabase.getInstance(AccountActivity.this);
+                    UsuarioDao usuarioDao = db.usuarioDao();
+                    usuarioDao.insertUsuario(usuarioEntity); // Insertamos el nuevo usuario
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    runOnUiThread(() -> Toast.makeText(this, "Error al guardar el usuario", Toast.LENGTH_LONG).show());
+                }
             });
 
             // Convierte el objeto UsuarioEntity a JSON
@@ -81,5 +88,14 @@ public class AccountActivity extends AppCompatActivity {
             setResult(ACCOUNT_CANCELAR);
             finish();
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Apagar el Executor para evitar fugas de memoria
+        if (executor instanceof ExecutorService) {
+            ((ExecutorService) executor).shutdown();
+        }
     }
 }
