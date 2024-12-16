@@ -75,7 +75,7 @@
         android:layout_height="100dp"
         android:layout_marginTop="28dp"
         android:contentDescription="@string/app_name"
-        android:src="@drawable/mpa"
+        android:src="@drawable/icono"
         app:layout_constraintBottom_toTopOf="@+id/descriptionText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

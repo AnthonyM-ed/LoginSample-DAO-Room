@@ -31,7 +31,7 @@
                     android:layout_height="83dp"
                     android:contentDescription=""
                     android:scaleType="centerCrop"
-                    android:src="@drawable/mpa"
+                    android:src="@drawable/icono"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
