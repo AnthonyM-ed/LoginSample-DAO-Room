@@ -1,9 +1,8 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFF9C4"
     android:orientation="vertical"
-    android:background="#C8EDE1"
     android:padding="16dp">
 
     <!-- Barra de búsqueda -->
@@ -12,16 +11,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Buscar edificaciones"
-        android:padding="12dp"/>
+        android:padding="12dp" />
 
     <!-- Título de la lista -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingTop="16dp"
         android:text="Lista de edificaciones"
         android:textColor="@android:color/black"
-        android:textSize="18sp"
-        android:paddingTop="16dp" />
+        android:textSize="18sp" />
 
     <!-- RecyclerView para la lista de edificaciones -->
     <androidx.recyclerview.widget.RecyclerView
@@ -29,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:scrollbars="vertical"/>
+        android:scrollbars="vertical" />
 
 </LinearLayout>
 

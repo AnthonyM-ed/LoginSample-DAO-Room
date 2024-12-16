@@ -14,6 +14,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#FFF9C4"
             android:orientation="vertical"
             android:padding="16dp">
 
@@ -36,11 +37,13 @@
                     android:id="@+id/description_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="#9D7705"
                     android:padding="8dp"
                     android:text="Bienvenido"
                     android:textAlignment="center"
-                    android:textColor="@android:color/white"
-                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -66,7 +69,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="Lista de Edificaciones: Explora y conoce más sobre las edificaciones turísticas de Arequipa."
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/black"
                     android:textSize="16sp" />
 
                 <Button
@@ -74,8 +77,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:backgroundTint="#000000"
                     android:onClick="onEdificacionesClick"
-                    android:text="Explorar" /> <!-- Método para manejar el clic -->
+                    android:text="Explorar"
+                    android:textColor="#FFFFFF" /> <!-- Método para manejar el clic -->
             </LinearLayout>
 
             <LinearLayout
@@ -97,7 +102,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="Mapa: Encuentra los lugares turísticos y ediciones en Arequipa de forma interactiva."
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/black"
                     android:textSize="16sp" />
 
                 <Button
@@ -105,6 +110,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:backgroundTint="#000000"
                     android:onClick="onMapClick"
                     android:text="Ver Mapa" />
             </LinearLayout>
