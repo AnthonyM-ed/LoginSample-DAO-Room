@@ -75,7 +75,7 @@ public class ComentarioRepository {
         void onBuildingLoaded(EdificioEntity edificio);
     }
 
-    // Agregar un nuevo comentario
+    // AgregFFFar un nuevo comentario
     public void addComment(ComentarioEntity comentario) {
         executor.execute(() -> {
             try {

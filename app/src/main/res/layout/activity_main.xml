@@ -5,6 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFF9C4"
+    android:foregroundTint="#000000"
     tools:context=".LoginActivity">
 
     <EditText
@@ -26,9 +28,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:ems="10"
+        android:hint="Password"
         android:inputType="textPassword"
         android:text=""
-        android:hint="Password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtUsername" />
@@ -38,7 +40,9 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
+        android:backgroundTint="#000000"
         android:text="Login"
+        android:textColor="#E9C46A"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtPassword" />
@@ -57,18 +61,21 @@
         android:id="@+id/imageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:scaleType="centerCrop"
         android:layout_marginTop="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/login1" />
+        app:srcCompat="@drawable/login" />
 
     <Button
         android:id="@+id/btnAddAccount"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="46dp"
+        android:backgroundTint="#000000"
         android:text="Crear cuenta"
+        android:textColor="#E9C46A"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin" />

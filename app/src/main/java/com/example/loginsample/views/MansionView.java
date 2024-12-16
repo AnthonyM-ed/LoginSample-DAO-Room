@@ -163,16 +163,25 @@ public class MansionView extends View {
 
             while ((line = reader.readLine()) != null) {
                 if (line.startsWith("Cuarto:")) {
+
                     roomNumber = Integer.parseInt(line.split(":")[1].trim());
+                    Log.d("MansionView", roomNumber+"");
+
                 } else if (line.startsWith("Título:")) {
                     title = line.split(":")[1].trim();
+                    Log.d("MansionView", title+"");
+
                 } else if (line.startsWith("Descripción:")) {
                     description = line.substring(line.indexOf(":") + 1).trim();
+                    Log.d("MansionView", description+"");
                 } else if (line.startsWith("URL de la imagen:")) {
                     imageUrl = line.split(":")[1].trim();
+                    Log.d("MansionView", imageUrl+"");
 
                     // Convertir el nombre de la imagen en un recurso drawable
                     int imageResId = context.getResources().getIdentifier(imageUrl, "drawable", context.getPackageName());
+                    Log.d("MansionView", imageResId+"");
+                    Log.d("MansionView", "_________________________");
 
                     // Guardar la información si todos los datos están completos
                     if (roomNumber != -1 && title != null && description != null && imageResId != 0) {
@@ -185,6 +194,7 @@ public class MansionView extends View {
                 }
             }
             reader.close();
+            Log.d("MansionView", roomDataMap.size()+"");
         } catch (Exception e) {
             e.printStackTrace();
         }
