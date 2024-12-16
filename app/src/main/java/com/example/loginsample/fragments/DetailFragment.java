@@ -53,12 +53,6 @@ public class DetailFragment extends Fragment {
             requireActivity().startService(playIntent);
         });
 
-        //declaración botón
-        //btnPlay.setOnClickListener(v -> {
-        //    Intent playIntent = new Intent(requireContext(), MusicService.class);
-         //   playIntent.setAction("ACTION_PLAY");
-         //   requireActivity().startService(playIntent);
-       // });
         // Configurar los valores de los elementos de la interfaz
         titleTextView.setText(title);
         descriptionTextView.setText(description);
@@ -103,4 +97,12 @@ public class DetailFragment extends Fragment {
             idAudio = getArguments().getInt("idAudio");
         }
     }
+    @Override
+    public void onStop() {
+        super.onStop();
+        Intent stopIntent = new Intent(getActivity(), MusicService.class);
+        stopIntent.setAction("ACTION_STOP_ON_EXIT");
+        getActivity().startService(stopIntent);
+    }
+
 }

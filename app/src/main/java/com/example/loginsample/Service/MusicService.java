@@ -33,7 +33,6 @@ public class MusicService extends Service {
             return START_NOT_STICKY;
         }
 
-        // Obtener el valor entero pasado como extra
         if (intent.hasExtra("AUDIO_RESOURCE")) {
             audio = intent.getIntExtra("AUDIO_RESOURCE", R.raw.audcatedral); // Valor predeterminado
         }
@@ -50,6 +49,10 @@ public class MusicService extends Service {
             case "ACTION_STOP_FOREGROUND":
                 stopMusic();
                 break;
+            case "ACTION_STOP_ON_EXIT": // Nueva acción
+                stopMusic();
+                stopSelf(); // Detener completamente el servicio
+                break;
             case "ACTION_SET_ACTIVITY_VISIBLE":
                 isActivityVisible = true;
                 stopForeground(true);
@@ -59,13 +62,13 @@ public class MusicService extends Service {
                 break;
         }
 
-        // Actualiza la notificación solo si la actividad no está visible
         if (!isActivityVisible && mediaPlayer != null && mediaPlayer.isPlaying()) {
             startForeground(1, buildNotification("Playing Music"));
         }
 
         return START_STICKY;
     }
+
 
     private void startMusic() {
         // Si ya hay un MediaPlayer en reproducción, detenerlo y liberarlo
