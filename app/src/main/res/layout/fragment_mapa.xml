@@ -8,6 +8,7 @@
         android:id="@+id/search_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FFF9C4"
         android:iconifiedByDefault="false"
         android:queryHint="Buscar ubicación" />
 

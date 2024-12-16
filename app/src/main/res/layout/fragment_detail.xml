@@ -2,20 +2,21 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E9C46A"
     android:orientation="vertical"
-    android:padding="10dp"
-    android:background="#E0E0E0">
+    android:padding="10dp">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#FFF9C4"
         android:fillViewport="true"
-        android:padding="10dp"
-        android:background="#fff">
+        android:padding="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#FFF9C4"
             android:orientation="vertical">
 
             <TextView
@@ -24,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:text="Texto por Defecto"
                 android:textSize="24sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/image_view"
@@ -46,20 +47,20 @@
                 android:id="@+id/btn_view_mansion"
                 android:layout_width="170dp"
                 android:layout_height="wrap_content"
-                android:text="Ver Interior"
-                android:backgroundTint="#F0EFEF"
+                android:backgroundTint="#E9C46A"
                 android:drawableLeft="@drawable/right_arrow"
                 android:gravity="start|center_vertical"
+                android:text="Ver Interior"
                 android:textColor="@color/black" />
 
             <Button
                 android:id="@+id/btn_view_comments"
                 android:layout_width="170dp"
                 android:layout_height="wrap_content"
-                android:text="Comentarios"
-                android:backgroundTint="#F0EFEF"
+                android:backgroundTint="#E9C46A"
                 android:drawableLeft="@drawable/right_arrow"
                 android:gravity="start|center_vertical"
+                android:text="Comentarios"
                 android:textColor="@color/black" />
         </LinearLayout>
     </ScrollView>

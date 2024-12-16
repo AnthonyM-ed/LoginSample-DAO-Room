@@ -2,44 +2,44 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#FFF9C4"
+    android:backgroundTint="#FFF9C4"
     android:orientation="vertical"
-    android:padding="8dp"
-    android:background="?android:attr/selectableItemBackground">
+    android:padding="8dp">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_marginBottom="4dp"
         android:gravity="start"
-        android:layout_marginBottom="4dp">
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/comment_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="4dp"
             android:text="Nombre de Usuario"
             android:textSize="16sp"
-            android:layout_marginBottom="4dp"
-            android:layout_marginRight="10dp"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/comment_rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14dp"
+            android:layout_marginLeft="4dp"
             android:text="5"
             android:textColor="#FFAE00"
-            android:layout_marginLeft="4dp" />
+            android:textSize="14dp" />
 
         <ImageView
             android:id="@+id/comment_star_icon"
             android:layout_width="15dp"
             android:layout_height="15dp"
-            android:layout_marginBottom="7dp"
             android:layout_marginTop="4dp"
+            android:layout_marginBottom="7dp"
             android:src="@drawable/fullstar" />
-
 
 
     </LinearLayout>
@@ -48,7 +48,7 @@
         android:id="@+id/comment_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
         android:text="Comentario del usuario"
-        android:textSize="14sp"
-        android:layout_marginBottom="4dp" />
+        android:textSize="14sp" />
 </LinearLayout>
