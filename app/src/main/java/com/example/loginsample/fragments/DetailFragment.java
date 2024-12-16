@@ -1,5 +1,6 @@
 package com.example.loginsample.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.loginsample.R;
+import com.example.loginsample.Service.MusicService;
 
 public class DetailFragment extends Fragment {
     private String title;
@@ -38,7 +40,15 @@ public class DetailFragment extends Fragment {
         ImageView imageView = view.findViewById(R.id.image_view);
         Button btnViewMansion = view.findViewById(R.id.btn_view_mansion);
         Button btnViewComments = view.findViewById(R.id.btn_view_comments);
+        ImageView btnPlay = view.findViewById(R.id.image_play);
 
+
+        //declaración botón
+        btnPlay.setOnClickListener(v -> {
+            Intent playIntent = new Intent(requireContext(), MusicService.class);
+            playIntent.setAction("ACTION_PLAY");
+            requireActivity().startService(playIntent);
+        });
         // Configurar los valores de los elementos de la interfaz
         titleTextView.setText(title);
         descriptionTextView.setText(description);
