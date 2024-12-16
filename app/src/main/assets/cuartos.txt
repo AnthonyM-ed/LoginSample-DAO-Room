@@ -6,12 +6,12 @@ URL de la imagen: ingreso
 Cuarto: 2
 Título: Garcí Manuel de Carbajal
 Descripción: Esta habitación está dedicada a Garcí Manuel de Carbajal, el fundador de Arequipa. Aquí se pueden ver objetos y retratos relacionados con su vida y legado. La decoración interior refleja la época colonial y muestra la importancia histórica de la Mansión como hogar de personajes ilustres.
-URL de la imagen: garci_manuel
+URL de la imagen: garcia
 
 Cuarto: 3
 Título: La planta de la Mansión
 Descripción: La planta de la Mansión sigue un diseño característico de la arquitectura colonial, con un patio central que sirve como el corazón de la construcción. Alrededor de este patio, se encuentran varias habitaciones conectadas entre sí, reflejando el estilo de vida de los habitantes de aquella época. El patio central cuenta con una fuente de agua, símbolo de tranquilidad y vida en la casona.
-URL de la imagen: planta_mansion
+URL de la imagen: planta
 
 Cuarto: 4
 Título: Vida en la casona
