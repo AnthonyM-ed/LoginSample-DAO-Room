@@ -18,14 +18,16 @@ public class DetailFragment extends Fragment {
     private String title;
     private String description;
     private int imageResId;  // Cambiar a String para manejar el nombre de la imagen
+    private int idAudio;
 
     // Método para crear una nueva instancia del fragmento con parámetros
-    public static DetailFragment newInstance(String title, String description, int imageName) {
+    public static DetailFragment newInstance(String title, String description, int imageName, int idAudio) {
         DetailFragment fragment = new DetailFragment();
         Bundle args = new Bundle();
         args.putString("title", title);
         args.putString("description", description);
         args.putInt("imageName", imageName);
+        args.putInt("idAudio", idAudio);
         fragment.setArguments(args);
         return fragment;
     }
@@ -42,13 +44,21 @@ public class DetailFragment extends Fragment {
         Button btnViewComments = view.findViewById(R.id.btn_view_comments);
         ImageView btnPlay = view.findViewById(R.id.image_play);
 
-
-        //declaración botón
         btnPlay.setOnClickListener(v -> {
             Intent playIntent = new Intent(requireContext(), MusicService.class);
             playIntent.setAction("ACTION_PLAY");
+
+            // Agregar el valor entero al intent
+            playIntent.putExtra("AUDIO_RESOURCE", idAudio); // Cambia este valor dinámicamente si es necesario
             requireActivity().startService(playIntent);
         });
+
+        //declaración botón
+        //btnPlay.setOnClickListener(v -> {
+        //    Intent playIntent = new Intent(requireContext(), MusicService.class);
+         //   playIntent.setAction("ACTION_PLAY");
+         //   requireActivity().startService(playIntent);
+       // });
         // Configurar los valores de los elementos de la interfaz
         titleTextView.setText(title);
         descriptionTextView.setText(description);
@@ -90,6 +100,7 @@ public class DetailFragment extends Fragment {
             title = getArguments().getString("title");
             description = getArguments().getString("description");
             imageResId  = getArguments().getInt("imageName");  // Recuperar el ID del recurso de la imagen
+            idAudio = getArguments().getInt("idAudio");
         }
     }
 }

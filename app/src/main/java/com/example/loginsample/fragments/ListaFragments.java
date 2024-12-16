@@ -80,7 +80,8 @@ public class ListaFragments extends Fragment {
             DetailFragment detailFragment = DetailFragment.newInstance(
                     edificio.getEdiName(),
                     edificio.getDescription(),
-                    edificio.getEdiImagen()
+                    edificio.getEdiImagen(),
+                    edificio.getEdAudId()
             );
 
             // Manejo de la transacción del fragmento

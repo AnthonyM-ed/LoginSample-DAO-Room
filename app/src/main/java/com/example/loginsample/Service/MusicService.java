@@ -17,15 +17,13 @@ import com.example.loginsample.R;
 public class MusicService extends Service {
     public static MediaPlayer mediaPlayer;
     private boolean isPaused = false;
-    //codigo
     private static final String CHANNEL_ID = "MusicServiceChannel";
     private boolean isActivityVisible = false;
+    private int audio; // Variable para almacenar el recurso de audio
 
     @Override
     public void onCreate() {
         super.onCreate();
-        mediaPlayer = MediaPlayer.create(this, R.raw.audcatedral);
-        mediaPlayer.setLooping(false);
         createNotificationChannel();
     }
 
@@ -33,6 +31,11 @@ public class MusicService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         if (intent == null || intent.getAction() == null) {
             return START_NOT_STICKY;
+        }
+
+        // Obtener el valor entero pasado como extra
+        if (intent.hasExtra("AUDIO_RESOURCE")) {
+            audio = intent.getIntExtra("AUDIO_RESOURCE", R.raw.audcatedral); // Valor predeterminado
         }
 
         switch (intent.getAction()) {
@@ -65,21 +68,30 @@ public class MusicService extends Service {
     }
 
     private void startMusic() {
-        if (mediaPlayer == null) {
-            mediaPlayer = MediaPlayer.create(this, R.raw.audcatedral);
+        // Si ya hay un MediaPlayer en reproducción, detenerlo y liberarlo
+        if (mediaPlayer != null) {
+            if (mediaPlayer.isPlaying()) {
+                mediaPlayer.stop();
+            }
+            mediaPlayer.release();
+            mediaPlayer = null;
         }
 
-        if (isPaused) {
-            mediaPlayer.start();
-            isPaused = false;
-        } else if (!mediaPlayer.isPlaying()) {
+        // Crear una nueva instancia de MediaPlayer con el recurso actual
+        mediaPlayer = MediaPlayer.create(this, audio);
+
+        if (mediaPlayer != null) {
             mediaPlayer.start();
         }
 
+        isPaused = false;
+
+        // Si la actividad no es visible, iniciar el servicio en primer plano
         if (!isActivityVisible) {
             startForeground(1, buildNotification("Playing music"));
         }
     }
+
 
     public void pauseMusic() {
         if (mediaPlayer != null && mediaPlayer.isPlaying()) {
@@ -115,8 +127,8 @@ public class MusicService extends Service {
         return new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle("Music Player")
                 .setContentText(contentText)
-           //     .setSmallIcon(R.drawable.ic_music_note)
-           //     .addAction(R.drawable.ic_stop_small, "STOP", stopPendingIntent)
+                //     .setSmallIcon(R.drawable.ic_music_note)
+                //     .addAction(R.drawable.ic_stop_small, "STOP", stopPendingIntent)
                 .setPriority(NotificationCompat.PRIORITY_LOW)
                 .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
                 .build();
