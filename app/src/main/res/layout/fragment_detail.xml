@@ -27,6 +27,7 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
+
             <ImageView
                 android:id="@+id/image_view"
                 android:layout_width="match_parent"
@@ -42,6 +43,14 @@
                 android:layout_marginBottom="15dp"
                 android:text="Texto por defecto"
                 android:textSize="15sp" />
+            <ImageView
+                android:id="@+id/image_play"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/ic_play"
+                android:clickable="true"
+                android:scaleType="centerCrop" />
 
             <Button
                 android:id="@+id/btn_view_mansion"

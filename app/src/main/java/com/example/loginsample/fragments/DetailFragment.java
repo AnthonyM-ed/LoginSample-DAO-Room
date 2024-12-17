@@ -1,5 +1,6 @@
 package com.example.loginsample.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,19 +12,22 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.loginsample.R;
+import com.example.loginsample.Service.MusicService;
 
 public class DetailFragment extends Fragment {
     private String title;
     private String description;
     private int imageResId;  // Cambiar a String para manejar el nombre de la imagen
+    private int idAudio;
 
     // Método para crear una nueva instancia del fragmento con parámetros
-    public static DetailFragment newInstance(String title, String description, int imageName) {
+    public static DetailFragment newInstance(String title, String description, int imageName, int idAudio) {
         DetailFragment fragment = new DetailFragment();
         Bundle args = new Bundle();
         args.putString("title", title);
         args.putString("description", description);
         args.putInt("imageName", imageName);
+        args.putInt("idAudio", idAudio);
         fragment.setArguments(args);
         return fragment;
     }
@@ -38,6 +42,16 @@ public class DetailFragment extends Fragment {
         ImageView imageView = view.findViewById(R.id.image_view);
         Button btnViewMansion = view.findViewById(R.id.btn_view_mansion);
         Button btnViewComments = view.findViewById(R.id.btn_view_comments);
+        ImageView btnPlay = view.findViewById(R.id.image_play);
+
+        btnPlay.setOnClickListener(v -> {
+            Intent playIntent = new Intent(requireContext(), MusicService.class);
+            playIntent.setAction("ACTION_PLAY");
+
+            // Agregar el valor entero al intent
+            playIntent.putExtra("AUDIO_RESOURCE", idAudio); // Cambia este valor dinámicamente si es necesario
+            requireActivity().startService(playIntent);
+        });
 
         // Configurar los valores de los elementos de la interfaz
         titleTextView.setText(title);
@@ -80,6 +94,15 @@ public class DetailFragment extends Fragment {
             title = getArguments().getString("title");
             description = getArguments().getString("description");
             imageResId  = getArguments().getInt("imageName");  // Recuperar el ID del recurso de la imagen
+            idAudio = getArguments().getInt("idAudio");
         }
     }
+    @Override
+    public void onStop() {
+        super.onStop();
+        Intent stopIntent = new Intent(getActivity(), MusicService.class);
+        stopIntent.setAction("ACTION_STOP_ON_EXIT");
+        getActivity().startService(stopIntent);
+    }
+
 }
