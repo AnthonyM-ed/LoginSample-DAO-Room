@@ -24,12 +24,12 @@
                 android:id="@+id/btn_back_to_detail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/black"
+                android:backgroundTint="#FFF9C4"
                 android:drawableLeft="@drawable/left_arrow"
                 android:gravity="start|center_vertical"
                 android:paddingStart="0dp"
                 android:text="Regresar"
-                android:textColor="@color/white" />
+                android:textColor="@color/black" />
 
             <TextView
                 android:layout_width="wrap_content"

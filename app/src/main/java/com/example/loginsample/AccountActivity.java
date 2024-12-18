@@ -18,10 +18,10 @@ import com.google.gson.Gson;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class AccountActivity extends AppCompatActivity {
-    public final static String ACCOUNT_RECORD = "ACCOUNT_RECORD";
-    public final static Integer ACCOUNT_ACEPTAR = 100;
     public final static Integer ACCOUNT_CANCELAR = 200;
 
     private Executor executor;
@@ -51,13 +51,58 @@ public class AccountActivity extends AppCompatActivity {
 
         btnAceptar.setOnClickListener(v -> {
             // Recuperamos los datos del formulario
+            String firstName = edtFirstname.getText().toString().trim();
+            String lastName = edtLastname.getText().toString().trim();
+            String email = edtEmail.getText().toString().trim();
+            String phone = edtPhone.getText().toString().trim();
+            String username = edtUsername2.getText().toString().trim();
+            String password = edtPassword2.getText().toString().trim();
+
+            // Validamos los campos
+            if (firstName.isEmpty()) {
+                Toast.makeText(this, "El nombre es obligatorio.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (lastName.isEmpty()) {
+                Toast.makeText(this, "El apellido es obligatorio.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (email.isEmpty()) {
+                Toast.makeText(this, "El correo electrónico es obligatorio.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            // Validamos el formato del correo electrónico
+            Pattern pattern = Pattern.compile("[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}");
+            Matcher matcher = pattern.matcher(email);
+            if (!matcher.matches()) {
+                Toast.makeText(this, "El correo electrónico no es válido.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (phone.isEmpty()) {
+                Toast.makeText(this, "El número de teléfono es obligatorio.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (username.isEmpty()) {
+                Toast.makeText(this, "El nombre de usuario es obligatorio.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (password.isEmpty()) {
+                Toast.makeText(this, "La contraseña es obligatoria.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (password.length() < 6) {
+                Toast.makeText(this, "La contraseña debe tener al menos 6 caracteres.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // Si todas las validaciones son correctas, creamos el objeto UsuarioEntity
             UsuarioEntity usuarioEntity = new UsuarioEntity();
-            usuarioEntity.setUserFirstName(edtFirstname.getText().toString());
-            usuarioEntity.setUserLastName(edtLastname.getText().toString());
-            usuarioEntity.setUserEmail(edtEmail.getText().toString());
-            usuarioEntity.setUserPhone(edtPhone.getText().toString());
-            usuarioEntity.setUserName(edtUsername2.getText().toString());
-            usuarioEntity.setUserPassword(edtPassword2.getText().toString());
+            usuarioEntity.setUserFirstName(firstName);
+            usuarioEntity.setUserLastName(lastName);
+            usuarioEntity.setUserEmail(email);
+            usuarioEntity.setUserPhone(phone);
+            usuarioEntity.setUserName(username);
+            usuarioEntity.setUserPassword(password);
 
             // Insertamos el usuario en la base de datos en segundo plano
             executor.execute(() -> {
@@ -66,20 +111,14 @@ public class AccountActivity extends AppCompatActivity {
                     AppDatabase db = AppDatabase.getInstance(AccountActivity.this);
                     UsuarioDao usuarioDao = db.usuarioDao();
                     usuarioDao.insertUsuario(usuarioEntity); // Insertamos el nuevo usuario
+                    runOnUiThread(() -> Toast.makeText(this, "Usuario guardado exitosamente.", Toast.LENGTH_SHORT).show());
                 } catch (Exception e) {
                     e.printStackTrace();
                     runOnUiThread(() -> Toast.makeText(this, "Error al guardar el usuario", Toast.LENGTH_LONG).show());
                 }
             });
 
-            // Convierte el objeto UsuarioEntity a JSON
-            Gson gson = new Gson();
-            String usuarioJson = gson.toJson(usuarioEntity);
-
-            // Creamos el Intent con el objeto serializado
-            Intent data = new Intent();
-            data.putExtra(ACCOUNT_RECORD, usuarioJson);
-            setResult(ACCOUNT_ACEPTAR, data);
+            setResult(RESULT_OK);
             finish();
         });
 

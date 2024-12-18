@@ -1,22 +1,22 @@
 admin|Plaza de Armas|5|Un lugar icónico que representa el alma de la ciudad.
-usuario1|Cañón del Colca|4|Un paisaje único, los cóndores son el gran atractivo.
-usuario2|Mirador de Yanahuara|5|Perfecto para capturar fotos inolvidables de Arequipa.
-usuario3|Museo Santuarios Andinos|5|La historia detrás de la momia Juanita es fascinante.
-usuario4|Molino de Sabandía|4|Un rincón lleno de historia y tranquilidad.
-usuario5|Baños Termales de Yura|4|Una experiencia relajante, ideal después de un largo día.
-usuario6|Mansión del Fundador|5|La arquitectura colonial es simplemente espectacular.
-usuario7|Templo de la Compañía de Jesus|5|Una obra maestra del arte barroco en Arequipa.
-usuario8|Basílica Catedral de Arequipa|5|Impactante tanto por fuera como por dentro, un lugar único.
-usuario9|Monasterio de Santa Catalina|4|Un viaje al pasado con una atmósfera única.
-usuario10|Plaza de Armas|5|Siempre llena de vida y rodeada de edificios impresionantes.
-admin|Museo Santuarios Andinos|5|Es una parada obligatoria si visitas Arequipa.
-usuario1|Baños Termales de Yura|3|El lugar es bueno, pero podría estar mejor mantenido.
-usuario2|Cañón del Colca|5|La vista es inolvidable, un lugar de ensueño.
-usuario3|Mansión del Fundador|4|Hermoso lugar, aunque un poco alejado del centro.
-usuario4|Basílica Catedral de Arequipa|5|Un ejemplo magnífico de la arquitectura religiosa.
-usuario5|Mirador de Yanahuara|4|Hermoso, pero puede estar un poco lleno a veces.
-usuario6|Monasterio de Santa Catalina|5|Cada rincón está lleno de historia y belleza.
-usuario7|Molino de Sabandía|4|El paisaje es muy bonito, ideal para un paseo tranquilo.
-usuario8|Templo de la Compañía de Jesus|4|Una joya arquitectónica, pero esperaba más del interior.
-usuario9|Cañón del Colca|5|Uno de los mejores paisajes naturales que he visto.
-usuario10|Baños Termales de Yura|5|Perfecto para relajarse, el agua es maravillosa.
+JuanP|Cañón del Colca|4|Un paisaje único, los cóndores son el gran atractivo.
+MariaPia|Mirador de Yanahuara|5|Perfecto para capturar fotos inolvidables de Arequipa.
+Carlitos99|Museo Santuarios Andinos|5|La historia detrás de la momia Juanita es fascinante.
+AnaMartinez|Molino de Sabandía|4|Un rincón lleno de historia y tranquilidad.
+Luisito|Baños Termales de Yura|4|Una experiencia relajante, ideal después de un largo día.
+Lucy|Mansión del Fundador|5|La arquitectura colonial es simplemente espectacular.
+PedroPastor|Templo de la Compañía de Jesus|5|Una obra maestra del arte barroco en Arequipa.
+SaritaColonia|Basílica Catedral de Arequipa|5|Impactante tanto por fuera como por dentro, un lugar único.
+Jose66|Monasterio de Santa Catalina|4|Un viaje al pasado con una atmósfera única.
+LauraP|Plaza de Armas|5|Siempre llena de vida y rodeada de edificios impresionantes.
+JuanP|Museo Santuarios Andinos|5|Es una parada obligatoria si visitas Arequipa.
+JuanP|Baños Termales de Yura|3|El lugar es bueno, pero podría estar mejor mantenido.
+MariaPia|Cañón del Colca|5|La vista es inolvidable, un lugar de ensueño.
+Carlitos99|Mansión del Fundador|4|Hermoso lugar, aunque un poco alejado del centro.
+AnaMartinez|Basílica Catedral de Arequipa|5|Un ejemplo magnífico de la arquitectura religiosa.
+Luisito|Mirador de Yanahuara|4|Hermoso, pero puede estar un poco lleno a veces.
+Lucy|Monasterio de Santa Catalina|5|Cada rincón está lleno de historia y belleza.
+PedroPastor|Molino de Sabandía|4|El paisaje es muy bonito, ideal para un paseo tranquilo.
+SaritaColonia|Templo de la Compañía de Jesus|4|Una joya arquitectónica, pero esperaba más del interior.
+Jose66|Cañón del Colca|5|Uno de los mejores paisajes naturales que he visto.
+LauraP|Baños Termales de Yura|5|Perfecto para relajarse, el agua es maravillosa.
