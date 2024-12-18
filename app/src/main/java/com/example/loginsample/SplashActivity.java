@@ -30,16 +30,27 @@ public class SplashActivity extends AppCompatActivity {
             // Deshabilitar el botón para evitar múltiples clics
             startButton.setEnabled(false);
 
-            // Cargar datos en segundo plano
+            // Validar y cargar datos en segundo plano
             ExecutorService executor = Executors.newSingleThreadExecutor();
             executor.execute(() -> {
                 try {
-                    database.cargarUsuarios(this);
-                    database.cargarEdificios(this);
+                    // Verificar si las tablas están vacías
+                    boolean isUsuariosEmpty = database.usuarioDao().countUsuarios() == 0;
+                    boolean isEdificiosEmpty = database.edificioDao().countEdificios() == 0;
+
+                    // Cargar datos solo si las tablas están vacías
+                    if (isUsuariosEmpty) {
+                        database.cargarUsuarios(this);
+                    }
+                    if (isEdificiosEmpty) {
+                        database.cargarEdificios(this);
+                    }
 
                     // Volver al hilo principal para navegar
                     runOnUiThread(() -> {
-                        Toast.makeText(this, "Datos cargados correctamente", Toast.LENGTH_SHORT).show();
+                        if (isUsuariosEmpty || isEdificiosEmpty) {
+                            Toast.makeText(this, "Datos cargados correctamente", Toast.LENGTH_SHORT).show();
+                        }
                         Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
                         startActivity(intent);
                         finish(); // Cerrar SplashActivity
@@ -49,6 +60,8 @@ public class SplashActivity extends AppCompatActivity {
                         startButton.setEnabled(true);
                         Toast.makeText(this, "Error al cargar datos: " + e.getMessage(), Toast.LENGTH_LONG).show();
                     });
+                } finally {
+                    executor.shutdown(); // Apagar el executor
                 }
             });
         });

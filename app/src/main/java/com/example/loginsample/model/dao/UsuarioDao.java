@@ -35,4 +35,7 @@ public interface UsuarioDao {
     // Eliminar un usuario
     @Delete
     void deleteUsuario(UsuarioEntity usuario);
+
+    @Query("SELECT COUNT(*) FROM Usuarios")
+    int countUsuarios();
 }

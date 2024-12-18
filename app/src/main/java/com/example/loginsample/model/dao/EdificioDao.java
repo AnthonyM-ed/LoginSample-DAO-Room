@@ -35,4 +35,7 @@ public interface EdificioDao {
     // Eliminar un edificio
     @Delete
     void deleteEdificio(EdificioEntity edificio);
+
+    @Query("SELECT COUNT(*) FROM Edificios")
+    int countEdificios();
 }
