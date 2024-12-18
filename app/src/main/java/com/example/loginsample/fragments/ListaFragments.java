@@ -65,7 +65,7 @@ public class ListaFragments extends Fragment {
 
         // Configuración del RecyclerView
         recyclerView = view.findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
 
         // Inicialización de listas
         edificioList = new ArrayList<>();  // Esta lista debe ser llenada con datos de la base de datos
