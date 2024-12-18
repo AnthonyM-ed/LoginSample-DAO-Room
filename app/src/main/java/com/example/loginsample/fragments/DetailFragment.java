@@ -43,6 +43,7 @@ public class DetailFragment extends Fragment {
         Button btnViewMansion = view.findViewById(R.id.btn_view_mansion);
         Button btnViewComments = view.findViewById(R.id.btn_view_comments);
         ImageView btnPlay = view.findViewById(R.id.image_play);
+        Button btnBackToList = view.findViewById(R.id.btn_back_to_list);
 
         btnPlay.setOnClickListener(v -> {
             Intent playIntent = new Intent(requireContext(), MusicService.class);
@@ -83,6 +84,8 @@ public class DetailFragment extends Fragment {
                     .addToBackStack(null)
                     .commit();
         });
+
+        btnBackToList.setOnClickListener(v -> getParentFragmentManager().popBackStack());
 
         return view;
     }

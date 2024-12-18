@@ -19,6 +19,17 @@
             android:background="#FFF9C4"
             android:orientation="vertical">
 
+            <Button
+                android:id="@+id/btn_back_to_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FFF9C4"
+                android:drawableLeft="@drawable/left_arrow"
+                android:gravity="start|center_vertical"
+                android:paddingStart="0dp"
+                android:text="Regresar"
+                android:textColor="@color/black" />
+
             <TextView
                 android:id="@+id/title_text_view"
                 android:layout_width="wrap_content"
